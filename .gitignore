@@ -232,3 +232,4 @@ venv.bak/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 /zinzi/.elasticbeanstalk/
+/static/img/

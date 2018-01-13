@@ -1,0 +1,761 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <title>HanSangChun - Trainer</title>
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="width=device-width" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script%7CLato:300,400,700" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-dark.css' %}" rel="stylesheet">
+    <link id="pagestyle" href="{% static 'css/theme-dark.css' %}" rel="stylesheet">
+</head>
+
+<body data-offset="50" data-spy="scroll" data-target=".navbar" class="dark-theme">
+<nav class="navbar navbar-fixed-top shadow" id="js-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#"><span style="color: white; font-family: 'Dancing Script', sans-serif;">HanSangChun</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">about us</a></li>
+                <li><a href="#testimonials">work out</a></li>
+                <li><a href="#">before & after</a></li>
+                <li><a href="#contact">contact</a></li>
+                <li><a href="#">location</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="home section image-slider" id="home" style="max-height: 300px;">
+    <div class="home-slider text-center">
+        <div class="swiper-wrapper" style="max-height: 300px;">
+            <div class="swiper-slide" style="background-color: white; max-height: 300px;">
+                <img src="{% static 'img/slider/slide2.jpg' %}" alt="store logo" style="max-height: 350px;">
+                <h2 class="home-slider-title-main black-color">HanSangChun Trainer</h2>
+                {#                fixme  href 수정 #}
+                <a class="arrow bounce text-center" href="#testimonials" style="color: #0d0d0d"> <span
+                        class="ti-mouse"></span> <span
+                        class="ti-angle-double-down"></span> </a>
+            </div>
+
+            <div class="swiper-slide" style="background-color: white">
+                <img src="{% static 'img/slider/slide4.jpeg' %}" alt="store logo" style="max-height: 350px;">
+                <h2 class="home-slider-title-main black-color">HanSangChun Trainer</h2>
+                <a class="arrow bounce text-center" href="#about"> <span class="ti-mouse"></span> <span
+                        class="ti-angle-double-down"></span> </a>
+            </div>
+
+        </div>
+        <div class="home-pagination"></div>
+        <div class="home-slider-next right-arrow-negative"><span class="ti-arrow-right"></span></div>
+        <div class="home-slider-prev left-arrow-negative"><span class="ti-arrow-left"></span></div>
+    </div>
+</section>
+<section class="container-fluid about white-color no-padding" id="about">
+    <div class="about-background about-background-1 row no-margin">
+        <div class="col-md-6 about-black-box">
+            <h3 class="section-heading">Cocoa!</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#" class="btn btn-default">click action</a>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+
+    <div class="about-background about-background-2 row no-margin">
+        <div class="col-md-4 about-white-box col-md-offset-4">
+            <h2 class="section-claim wow fadeInDown" data-wow-delay="0.2s"
+                style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+                the best quality
+                <span>cocoa bean</span>
+            </h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <a href="#" class="btn btn-default">click action</a>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="about-background about-background-3 row no-margin">
+        <div class="col-md-6 about-black-box col-md-offset-6">
+            <h3 class="section-heading">Special!</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <a href="#" class="btn btn-default">click action</a>
+        </div>
+    </div>
+</section>
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading">Testimonials</h3>
+            </div>
+
+            <div class="col-md-12 testimonials-slider text-center">
+                <!-- CAROUSEL WRAPPER -->
+                <div class="swiper-wrapper">
+
+                    <!-- SINGLE TESTIMONIALS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-container shadow"><img alt="user avatar" class="wow fadeInUp"
+                                                                        src="{% static 'img/user.png' %}">
+                            <h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span>
+                            </h3>
+                            <p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. </p>
+                        </div>
+                    </div>
+                    <!-- / SINGLE TESTIMONIALS ITEM-->
+
+                    <!-- SINGLE TESTIMONIALS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-container shadow"><img alt="user avatar" class="wow fadeInUp"
+                                                                        src="{% static 'img/user.png' %}">
+                            <h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span>
+                            </h3>
+                            <p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. </p>
+                        </div>
+                    </div>
+                    <!-- / SINGLE TESTIMONIALS ITEM-->
+
+                    <!-- SINGLE TESTIMONIALS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-container shadow"><img alt="user avatar" class="wow fadeInUp"
+                                                                        src="{% static 'img/user.png' %}">
+                            <h3 class="wow fadeInUp" data-wow-delay=".4s"> Martin Johe, Co-Founder / CEO <span>Fastcompany ltd.</span>
+                            </h3>
+                            <p class="wow fadeInUp" data-wow-delay=".6s"> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. </p>
+                        </div>
+                    </div>
+                    <!-- / SINGLE TESTIMONIALS ITEM-->
+                </div>
+                <!-- / CAROUSEL WRAPPER -->
+
+                <!-- CAROUSEL CONTROLS -->
+                <div class="testimonials-pagination"></div>
+                <div class="testimonials-slider-next right-arrow-negative">
+                    <span class="ti-arrow-right"></span>
+                </div>
+                <div class="testimonials-slider-prev left-arrow-negative">
+                    <span class="ti-arrow-left"></span>
+                </div>
+                <!-- / CAROUSEL CONTROLS -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-center shadow section section-min">
+    <div class="about-counter" id="about-counter">
+        <div class="container">
+            <div class="row">
+                <!-- SINGLE COUNTER ITEM -->
+                <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-delay="0.2s" data-wow-duration="1s"
+                     data-wow-offset="0">
+                    <div class="counter"><span class="ti-crown icon"></span>
+                        <h2 class="timer">250</h2>
+                        <p> Projects Finished </p>
+                    </div>
+                </div>
+                <!-- / SINGLE COUNTER ITEM -->
+
+                <!-- SINGLE COUNTER ITEM -->
+                <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-delay="0.3s" data-wow-duration="1s"
+                     data-wow-offset="0">
+                    <div class="counter"><span class="ti-shortcode icon"></span>
+                        <h2 class="timer">28256</h2>
+                        <p> Line Of Coding </p>
+                    </div>
+                </div>
+                <!-- / SINGLE COUNTER ITEM -->
+
+                <!-- SINGLE COUNTER ITEM -->
+                <div class="col-md-3 wow fadeInLeft about-counter-single" data-wow-delay="0.4s" data-wow-duration="1s"
+                     data-wow-offset="0">
+                    <div class="counter"><span class="ti-cup icon"></span>
+                        <h2 class="timer">42</h2>
+                        <p> Award Won </p>
+                    </div>
+                </div>
+                <!-- / SINGLE COUNTER ITEM -->
+
+                <!-- SINGLE COUNTER ITEM -->
+                <div class="col-md-3 wow fadeInLeft" data-wow-delay="0.5s" data-wow-duration="1s" data-wow-offset="0">
+                    <div class="counter"><span class="ti-comments-smiley icon"></span>
+                        <h2 class="timer">240</h2>
+                        <p> Satisfied Clients </p>
+                    </div>
+                </div>
+            </div>
+            <!-- / SINGLE COUNTER ITEM -->
+        </div>
+    </div>
+</section>
+
+<section class="post-list" id="news">
+    <div class="container overflow-hidden">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading">news</h3>
+            </div>
+
+            <div class="post-slider col-md-12">
+                <!-- NEWS CAROSUEL -->
+                <div class="swiper-wrapper">
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+
+                    <!-- SINGLE NEWS ITEM -->
+                    <div class="swiper-slide">
+                        <div class="post-entry wow fadeInUp">
+                            <a href="#" data-toggle="modal" data-target="#post-01">
+									<span class="post-entry-cover"
+                                          style="background-image:url({% static 'img/blog-cover.jpg' %});">
+									</span>
+                            </a>
+
+                            <a class="h3" href="#" data-toggle="modal" data-target="#post-01">
+                                Estibulum ante ipsum primis lobortis
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#post-01" class="post-entry-more">
+                                read more
+                                <span class="ti-arrow-right icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- / SINGLE NEWS ITEM -->
+                </div>
+                <!-- / NEWS CAROSUEL -->
+
+                <!-- CAROUSEL CONTROLS -->
+                <div class="post-pagination text-center"></div>
+                <div class="post-slider-next right-arrow-negative">
+                    <span class="ti-arrow-right"></span>
+                </div>
+
+                <div class="post-slider-prev left-arrow-negative">
+                    <span class="ti-arrow-left"></span>
+                </div>
+                <!-- / CAROUSEL CONTROLS -->
+            </div>
+        </div>
+
+        <!-- NEWS MODAL -->
+        <div class="modal fade" id="post-01" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <!-- NEWS MODAL CONTENT -->
+                <div class="modal-content shadow">
+                    <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+
+                    <div class="modal-body">
+                        <div class="post-entry post-entry-modal">
+                            <h3 class="section-heading">Duis aute irure dolor in reprehenderit in voluptate.</h3>
+
+                            <span class="post-entry-meta">
+									<img alt="user avatar" class="post-entry-author pull-left"
+                                         src="{% static 'img/user.png' %}">
+									<span class="post-entry-author-name pull-left">Alex Example</span>
+									<span class="post-entry-time pull-right">6 min read
+										<span class="post-entry-category">interior, furnitures</span>
+									</span>
+								</span>
+
+                            <span class="post-entry-cover"
+                                  style="background-image:url({% static 'img/blog-cover.jpg' %});"></span>
+
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
+
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                veniam, </p>
+
+                            <p> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum. </p>
+
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum. </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- / NEWS MODAL CONTENT -->
+            </div>
+        </div>
+        <!-- / NEWS MODAL -->
+    </div>
+</section>
+
+<section class="timeline" id="history">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading">Our history</h3>
+                <div id="timeline" class="timeline-container">
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-1">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInLeft">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">May</span>
+	                            <span class="timeline-year">2016</span>
+	                            </span>
+                            <h2>Envelope title</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-2">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInRight">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">March</span>
+	                            <span class="timeline-year">2016</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-3">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInLeft">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">July</span>
+	                            <span class="timeline-year">2015</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-4">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInRight">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">May</span>
+	                            <span class="timeline-year">2009</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-5">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInLeft">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">August</span>
+	                            <span class="timeline-year">2008</span>
+	                            </span>
+                            <h2>Envelope title</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-6">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInRight">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">October</span>
+	                            <span class="timeline-year">2006</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-7">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInLeft">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">December</span>
+	                            <span class="timeline-year">2004</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- / TIMELINE ITEM -->
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-block timeline-block-image-8">
+                        <div class="timeline-point">
+                        </div>
+
+                        <div class="timeline-content wow fadeInRight">
+	                            <span class="timeline-date">
+	                            <span class="timeline-month">May</span>
+	                            <span class="timeline-year">2000</span>
+	                            </span>
+                            <h2>Lecce, Magnificat Lupiae</h2>
+                            <p>Lorem ipsm dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- / TIMELINE ITEM -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact contact-with-map">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading">contact</h3>
+            </div>
+            <div class="col-md-3">
+                <div class="contact-data">
+                    <ul class="white-color">
+                        <li><span class="ti-mobile icon"></span>+ 49 123 456 789</li>
+                        <li><span class="ti-email icon"></span>mail@example.com</li>
+                        <li><span class="ti-skype icon"></span>@choco</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-push-1">
+                <!-- CONTACT FORM -->
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contact-email" name="contact-email"
+                                   placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mobile" name="mobile"
+                                   placeholder="Mobile Number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Message" maxlength="140"
+                                      rows="7"></textarea>
+                        </div>
+
+                        <button type="button" id="submit" name="submit"
+                                class="btn btn-primary btn-lg text-center float-right">Submit your message
+                        </button>
+                    </form>
+                </div>
+                <!-- / CONTACT FORM -->
+            </div>
+        </div>
+    </div>
+    <!-- GOOGLE MAP CONTAINER -->
+    <div class="google-maps">
+        <div id="map-canvas"></div>
+    </div>
+    <!-- / GOOGLE MAP CONTAINER -->
+</section>
+
+<div class="section section-min">
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 col-md-push-4 text-center">
+                            <img class="footer-logo" src="{% static 'img/blog-cover.jpg' %}" alt="footer-logo">
+                            <div class="social">
+                                <ul>
+                                    <li>
+                                        <a href="http://facebook.com/" target="_blank">
+                                            <span class="ti-facebook"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <span class="ti-twitter-alt"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://linkedin.com/" target="_blank">
+                                            <span class="ti-linkedin"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://vimeo.com/" target="_blank">
+                                            <span class="ti-vimeo-alt"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://youtube.com/" target="_blank">
+                                            <span class="ti-youtube"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 col-sm-12">
+                            <div class="footer-newsletter">
+                                <div class="center text-center">
+                                    <h4>stay tuned</h4>
+                                    <form action="#" method="post">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="e-mail">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default">
+                                                    <span class="ti-arrow-right"></span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="{% static 'js/vendor/wow.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
+<script src="{% static 'js/vendor/swiper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.countTo.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.inview.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
