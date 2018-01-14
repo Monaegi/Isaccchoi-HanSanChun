@@ -9,12 +9,17 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+# Confi Secret
+CONFIC_SECRET_FILE = os.path.join(BASE_DIR, '.config_secret.json')
+
+config_secret = json.loads(open(CONFIC_SECRET_FILE).read())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -36,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # apps
     'blog',
+    # 3rd party
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +134,7 @@ STATICFILES_DIRS = (
 # MEDIA PATH
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 MEDIA_URL = '/media/'
+
+# Google Maps
+GOOGLE_MAPS_API_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
+GOOGLE_MAPS_API_KEY = config_secret['geocoding']['secret_key']

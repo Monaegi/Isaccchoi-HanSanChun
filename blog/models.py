@@ -3,7 +3,9 @@ import sys
 from io import BytesIO
 from urllib import request
 
+import requests
 from PIL import Image
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
@@ -12,7 +14,7 @@ from django.dispatch import receiver
 
 __all__ = (
     'PersonalInfo',
-    'MainImages',
+    'Home',
     'WeightWorkOut',
 )
 
@@ -29,19 +31,49 @@ CERTAIN_MUSCLE = (
 
 class PersonalInfo(models.Model):
     name = models.CharField(max_length=10)
-    main_text = models.CharField(max_length=100)
     description = models.TextField()
     address = models.CharField(max_length=100)
+    latitude = models.FloatField(blank=True)
+    longitude = models.FloatField(blank=True)
     # fixme regex적용 필요
     phone_num = models.CharField(max_length=20)
     mail = models.EmailField()
     facebook_id = models.CharField(max_length=30)
     instagram_id = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
 
-class MainImages(models.Model):
-    info = models.ForeignKey('PersonalInfo', on_delete=models.SET_NULL, null=True)
+    def save(self, *args, **kwargs):
+        if not self.latitude and not self.longitude:
+            params = {
+                'address': self.address,
+            }
+            res = requests.get(settings.GOOGLE_MAPS_API_URL, params=params).json()
+            location = res['results'][0]['geometry']['location']
+            lat = location['lat']
+            lng = location['lng']
+            try:
+                lat = float(lat)
+                lng = float(lng)
+            except ValueError:
+                lat = 1
+                lng = 1
+            except TypeError:
+                lat = 1
+                lng = 1
+            finally:
+                self.latitude = lat
+                self.longitude = lng
+        return super().save(*args, **kwargs)
+
+
+class Home(models.Model):
     image = models.ImageField(upload_to='main')
+    text = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.text[1:10]
 
 
 class WeightWorkOut(models.Model):
@@ -50,6 +82,9 @@ class WeightWorkOut(models.Model):
     description = models.TextField()
     url = models.URLField()
     thumbnail = models.ImageField(upload_to='thumbnail', blank=True)
+
+    def __str__(self):
+        return self.name
 
     def save(self, *args, **kwargs):
         pattern = re.compile(
