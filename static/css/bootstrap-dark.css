@@ -5,6 +5,22 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+@font-face {
+  font-family: 'Nanum Pen Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum Pen'), local('NanumPen'), url(http://fonts.gstatic.com/s/nanumpenscript/v5/2rU8j9ni4k7htGbezV-YqwRC8nvk9UiO5ZVTqrPk5Dk.woff2) format('woff2');
+  unicode-range: U+3131-318E, U+3200-321C, U+3260-327B, U+AC00-D7AF;
+}
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('NanumMyeongjo'), url(http://fonts.gstatic.com/s/nanummyeongjo/v5/759Ye4mX1L25nmQbM_bHUPNEUUy5gAWhZAIbG_Ps_dk.woff2) format('woff2');
+  unicode-range: U+3131-318E, U+3200-321C, U+3260-327B, U+AC00-D7AF;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

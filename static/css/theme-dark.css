@@ -4256,11 +4256,8 @@ body.modal-open {
   width: 100%;
   float: left; }
   .about-background-1 {
-    background-image: url("../img/news-1.jpg"); }
-  .about-background-2 {
-    background-image: url("../img/news-2.jpg"); }
-  .about-background-3 {
-    background-image: url("../img/news-3.jpg"); }
+    background-image: url("../img/slider/slide1.jpg"); }
+
 .about-black-box {
   min-height: 70vh;
   background: rgba(0, 0, 0, 0.9);

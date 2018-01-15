@@ -19,18 +19,19 @@ __all__ = (
 )
 
 CERTAIN_MUSCLE = (
-    ('che', '가슴'),
-    ('bac', '등'),
-    ('shd', '어깨'),
+    ('chest', '가슴'),
+    ('back', '등'),
+    ('shoulder', '어깨'),
     ('arm', '팔'),
     ('leg', '다리'),
-    ('abd', '복부'),
-    ('com', '복합'),
+    ('abdomen', '복부'),
+    ('complex', '복합'),
 )
 
 
 class PersonalInfo(models.Model):
     name = models.CharField(max_length=10)
+    image = models.ImageField(upload_to='profile_image', null=True, blank=True)
     description = models.TextField()
     address = models.CharField(max_length=100)
     latitude = models.FloatField(blank=True)
@@ -73,11 +74,16 @@ class Home(models.Model):
     text = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.text[1:10]
+        return f'{self.text[0:11]} - {self. pk}'
+
+
+class CategoryWorkOut(models.Model):
+    name = models.CharField(choices=CERTAIN_MUSCLE, max_length=8)
+    image = models.ImageField(upload_to='category')
 
 
 class WeightWorkOut(models.Model):
-    muscle = models.CharField(choices=CERTAIN_MUSCLE, max_length=3)
+    category = models.ForeignKey('CategoryWorkOut', on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     description = models.TextField()
     url = models.URLField()
@@ -112,3 +118,5 @@ def post_delete(sender, instance, **kwargs):
     storage, path = instance.thumbnail.storage, instance.tumbnail.path
     if (path != '.') and (path != '/') and (path != 'photos/') and (path != 'photos/.'):
         storage.delete(path)
+
+# fixme PersonalInfo image signal도 추가
