@@ -25,10 +25,10 @@
             <div class="col-md-4 about-white-box col-md-offset-4">
                 <img src="{{ person.image.url }}" alt="person image" style="border-radius: 50%; max-width: 250px;">
                 <h2 class="section-claim wow fadeInDown" data-wow-delay="0.2s"
-                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; font-family: Nanum Myeongjo;">
                     {{ person.name }}
                 </h2>
-                <p>{{ person.description }}</p>
+                <p style="font-family: Nanum Myeongjo;">{{ person.description }}</p>
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -44,7 +44,7 @@
                          data-wow-offset="0">
                         <div class="counter"><span class="ti-crown icon"></span>
                             <h2 class="timer">20</h2>
-                            <p> 대회 입상 </p>
+                            <p style="font-family: Nanum Myeongjo;"> 대회 입상 </p>
                         </div>
                     </div>
                     <!-- / SINGLE COUNTER ITEM -->
@@ -55,7 +55,7 @@
                          data-wow-offset="0">
                         <div class="counter"><span class="ti-user icon"></span>
                             <h2 class="timer">250</h2>
-                            <p> 교육한 회원 </p>
+                            <p style="font-family: Nanum Myeongjo;"> 교육한 회원 </p>
                         </div>
                     </div>
                     <!-- / SINGLE COUNTER ITEM -->
@@ -65,7 +65,7 @@
                          data-wow-offset="0">
                         <div class="counter"><span class="ti-comments-smiley icon"></span>
                             <h2 class="timer">240</h2>
-                            <p> 만족한 회원 </p>
+                            <p style="font-family: Nanum Myeongjo;"> 만족한 회원 </p>
                         </div>
                     </div>
                 </div>
@@ -74,28 +74,28 @@
         </div>
     </section>
 
-    <section class="post-list" id="beforafter" style="background-image: none;background-color: black;">
+    <section class="post-list" id="beforeafter" style="background-image: none;background-color: black;">
         <div class="container overflow-hidden">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="section-heading" style="color: white">Before & After</h3>
                 </div>
                 <div class="post-slider col-md-12">
-                    <!-- NEWS CAROSUEL -->
+                    <!-- BA CAROSUEL -->
                     <div class="swiper-wrapper">
                         {% for ba in before_after %}
-                            <!-- SINGLE NEWS ITEM -->
+                            <!-- SINGLE BA ITEM -->
                             <div class="swiper-slide">
                                 <div class="post-entry wow fadeInUp">
                                     <span class="post-entry-cover" style="background-image:url({{ ba.image.url }});">
                                     </span>
-                                    <h3 class="h3 text-center" style="color: white">{{ ba.period }}</h3>
+                                    <h3 class="h3 text-center" style="color: white;font-family: Nanum Myeongjo;">{{ ba.period }}</h3>
                                 </div>
                             </div>
-                            <!-- / SINGLE NEWS ITEM -->
+                            <!-- / SINGLE BA ITEM -->
                         {% endfor %}
                     </div>
-                    <!-- / NEWS CAROSUEL -->
+                    <!-- / BA CAROSUEL -->
                     <!-- CAROUSEL CONTROLS -->
                     <div class="post-pagination text-center"></div>
                     <div class="post-slider-next right-arrow-negative">
@@ -110,8 +110,103 @@
             </div>
         </div>
     </section>
-    <section class="contact contact-with-map"
-             style="background-image: none;background-color: black; max-height: 1000px;">
+    <section class="post-list" id="workout">
+        <div class="container overflow-hidden">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-heading">Work Out</h3>
+                </div>
+
+                <div class="post-slider col-md-12">
+                    <!-- WORKOUT CATEGORY CAROSUEL -->
+                    <div class="swiper-wrapper">
+                        {% for category in categories %}
+                            <!-- SINGLE CATEGORY ITEM -->
+                            <div class="swiper-slide" id="{{ category.name }}">
+                                <div class="post-entry wow fadeInUp">
+                                    <a href="#" data-toggle="modal" data-target="#workout-{{ category.name }}">
+									<span class="post-entry-cover"
+                                          style="background-image:url({{ category.image.url }});">
+									</span>
+                                    </a>
+                                    <a class="h3 text-center" href="#" data-toggle="modal"
+                                       data-target="#workout-{{ category.name }}" style="font-family: Nanum Myeongjo">
+                                        {{ category.get_name_display }}
+                                    </a>
+                                    <a href="#" data-toggle="modal" data-target="#workout-{{ category.name }}"
+                                       class="post-entry-more" style="font-family: Nanum Myeongjo">
+                                        운동 보기
+                                        <span class="ti-arrow-right icon"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- / SINGLE CATEGORY ITEM -->
+                        {% endfor %}
+                    </div>
+                    <!-- / WORK OUT CATEGORY CAROSUEL -->
+
+                    <!-- CAROUSEL CONTROLS -->
+                    <div class="post-pagination text-center"></div>
+                    <div class="post-slider-next right-arrow-negative">
+                        <span class="ti-arrow-right"></span>
+                    </div>
+
+                    <div class="post-slider-prev left-arrow-negative">
+                        <span class="ti-arrow-left"></span>
+                    </div>
+                    <!-- / CAROUSEL CONTROLS -->
+                </div>
+            </div>
+            {% for category in categories %}
+                <!-- NEWS MODAL -->
+                <div class="modal fade" id="workout-{{ category.name }}" role="dialog" tabindex="-1">
+                    <div class="modal-dialog">
+                        <!-- NEWS MODAL CONTENT -->
+                        <div class="modal-content shadow">
+                            <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+
+                            <div class="modal-body">
+                                <div class="post-entry post-entry-modal">
+                                    <h3 class="section-heading">{{ category.get_name_display }}</h3>
+                                    {% for workout in category.weightworkout_set.all %}
+                                        <span class="post-entry-meta">
+                                            <a href="{{ workout.url }}">
+                                                <p class="post-entry-author-name pull-left" style="font-family: Nanum Myeongjo">{{ workout.name }}</p>
+                                            </a>
+                                        </span>
+                                        <p>
+                                            <a href="{{ workout.url }}" style="display: inline-block">
+                                                <img src="{{ workout.thumbnail.url }}" alt="">
+                                            </a>
+                                        </p>
+                                        <p style="font-family: Nanum Myeongjo;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud
+                                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                            aute
+                                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                            nulla
+                                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                                            officia
+                                            deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                            aliqua.
+                                            Ut enim ad minim veniam,
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / NEWS MODAL CONTENT -->
+                    </div>
+                </div>
+                <!-- / NEWS MODAL -->
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="contact contact-with-map" style="background-image: none; background-color: black;">
         <!-- GOOGLE MAP CONTAINER -->
         <div class="google-maps" id="location">
             <span id="lat">{{ person.latitude }}</span>
@@ -120,7 +215,7 @@
         </div>
         <!-- / GOOGLE MAP CONTAINER -->
         <div class="container" id="contact">
-            <div class="row" style="margin-bottom: 50px;">
+            <div class="row">
                 <div class="col-md-12">
                     <h3 class="section-heading">contact</h3>
                 </div>

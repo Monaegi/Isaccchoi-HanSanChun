@@ -91,6 +91,9 @@ class CategoryWorkOut(models.Model):
     name = models.CharField(choices=CERTAIN_MUSCLE, max_length=8)
     image = models.ImageField(upload_to='category')
 
+    def __str__(self):
+        return self.get_name_display()
+
 
 class WeightWorkOut(models.Model):
     category = models.ForeignKey('CategoryWorkOut', on_delete=models.CASCADE)
