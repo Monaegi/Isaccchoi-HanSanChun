@@ -129,8 +129,6 @@ var lat = $('#lat').text();
 var lng = $('#lng').text();
 $('#lat').hide();
 $('#lng').hide();
-
-console.log(lat, lng);
 var map;
 var mapAddress = new google.maps.LatLng(lat, lng);
 

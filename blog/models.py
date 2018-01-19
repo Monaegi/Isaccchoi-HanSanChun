@@ -15,6 +15,7 @@ from django.dispatch import receiver
 __all__ = (
     'PersonalInfo',
     'Home',
+    'CategoryWorkOut',
     'WeightWorkOut',
     'BeforeAfter',
 )

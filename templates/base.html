@@ -30,11 +30,25 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'index' %}#home">home</a></li>
-                <li><a href="{% url 'index' %}#about">about us</a></li>
-                <li><a href="{% url 'index' %}#news">work out</a></li>
-                <li><a href="{% url 'index' %}#">before & after</a></li>
-                <li><a href="{% url 'index' %}#contact">contact</a></li>
-                <li><a href="{% url 'index' %}#location">location</a></li>
+                <li><a href="#about">about us</a></li>
+                <li><a href="#beforafter">before & after</a></li>
+                <li><a href="#location">location</a></li>
+                <li><a href="#contact">contact</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="true">
+                    work out
+                    <span class="caret"></span>
+                </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">chest</a></li>
+                        <li><a href="">back</a></li>
+                        <li><a href="">shoulder</a></li>
+                        <li><a href="">arm</a></li>
+                        <li><a href="">leg</a></li>
+                        <li><a href="">abdomen</a></li>
+                        <li><a href="">complex</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -53,28 +67,25 @@
                             <div class="social">
                                 <ul>
                                     <li>
-                                        <a href="http://facebook.com/" target="_blank">
+                                        <a href="https://www.facebook.com/profile.php?id=100023132088976"
+                                           target="_blank">
                                             <span class="ti-facebook"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/" target="_blank">
-                                            <span class="ti-twitter-alt"></span>
+                                        <a href="https://www.instagram.com/teamvouloir/" target="_blank">
+                                            <span class="ti-instagram"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="http://linkedin.com/" target="_blank">
-                                            <span class="ti-linkedin"></span>
+                                        <a href="tel:{{ person.phone_num }}" target="_blank">
+                                            <span class="ti-mobile"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://vimeo.com/" target="_blank">
-                                            <span class="ti-vimeo-alt"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://youtube.com/" target="_blank">
-                                            <span class="ti-youtube"></span>
+                                        <a href="mailto:{{ person.mail }}"
+                                           target="_blank">
+                                            <span class="ti-email"></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -82,31 +93,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-4 col-sm-12">
-                            <div class="footer-newsletter">
-                                <div class="center text-center">
-                                    <h4>stay tuned</h4>
-                                    <form action="#" method="post">
-                                        <div class="input-group">
-                                            <input class="form-control" type="text" placeholder="e-mail">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default">
-                                                    <span class="ti-arrow-right"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+{#        Todo Footer 추가 필요 #}
     </footer>
 </div>
 <script src="{% static 'js/vendor/wow.js' %}"></script>
