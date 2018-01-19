@@ -77,6 +77,11 @@ class Home(models.Model):
         return f'{self.text[0:11]} - {self. pk}'
 
 
+class BeforeAfter(models.Model):
+    image = models.ImageField(upload_to='before_after')
+    period = models.CharField(max_length=10)
+
+
 class CategoryWorkOut(models.Model):
     name = models.CharField(choices=CERTAIN_MUSCLE, max_length=8)
     image = models.ImageField(upload_to='category')
