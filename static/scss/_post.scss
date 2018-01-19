@@ -2,7 +2,6 @@
 	&-list {
 		@extend %section-padding;
 		position: relative;
-		background: url('../img/news.jpg') no-repeat scroll center center / cover $main-light-color;
 	}
 	&-slider {
 		@include smartphone {

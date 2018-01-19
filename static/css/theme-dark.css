@@ -4360,7 +4360,7 @@ body.modal-open {
 
 .post-list {
   position: relative;
-  background: url("../img/news.jpg") no-repeat scroll center center/cover #262626; }
+  }
 @media (max-width: 479px) {
   .post-slider {
     margin: 0 15px;

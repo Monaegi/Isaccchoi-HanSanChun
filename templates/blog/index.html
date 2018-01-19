@@ -89,7 +89,8 @@
                                 <div class="post-entry wow fadeInUp">
                                     <span class="post-entry-cover" style="background-image:url({{ ba.image.url }});">
                                     </span>
-                                    <h3 class="h3 text-center" style="color: white;font-family: Nanum Myeongjo;">{{ ba.period }}</h3>
+                                    <h3 class="h3 text-center"
+                                        style="color: white;font-family: Nanum Myeongjo;">{{ ba.period }}</h3>
                                 </div>
                             </div>
                             <!-- / SINGLE BA ITEM -->
@@ -171,7 +172,8 @@
                                     {% for workout in category.weightworkout_set.all %}
                                         <span class="post-entry-meta">
                                             <a href="{{ workout.url }}">
-                                                <p class="post-entry-author-name pull-left" style="font-family: Nanum Myeongjo">{{ workout.name }}</p>
+                                                <p class="post-entry-author-name pull-left"
+                                                   style="font-family: Nanum Myeongjo">{{ workout.name }}</p>
                                             </a>
                                         </span>
                                         <p>
@@ -179,7 +181,8 @@
                                                 <img src="{{ workout.thumbnail.url }}" alt="">
                                             </a>
                                         </p>
-                                        <p style="font-family: Nanum Myeongjo;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        <p style="font-family: Nanum Myeongjo;"> Lorem ipsum dolor sit amet, consectetur
+                                            adipisicing elit, sed do eiusmod
                                             tempor
                                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                             nostrud
