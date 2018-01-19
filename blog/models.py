@@ -125,7 +125,7 @@ class WeightWorkOut(models.Model):
 
 @receiver(post_delete, sender=WeightWorkOut)
 def post_delete(sender, instance, **kwargs):
-    storage, path = instance.thumbnail.storage, instance.tumbnail.path
+    storage, path = instance.thumbnail.storage, instance.thumbnail.path
     if (path != '.') and (path != '/') and (path != 'photos/') and (path != 'photos/.'):
         storage.delete(path)
 
