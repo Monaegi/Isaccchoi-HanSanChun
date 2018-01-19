@@ -16,6 +16,7 @@ __all__ = (
     'PersonalInfo',
     'Home',
     'WeightWorkOut',
+    'BeforeAfter',
 )
 
 CERTAIN_MUSCLE = (
@@ -80,6 +81,9 @@ class Home(models.Model):
 class BeforeAfter(models.Model):
     image = models.ImageField(upload_to='before_after')
     period = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f"{self.image.name.split('/')[1]} - {self.period}"
 
 
 class CategoryWorkOut(models.Model):

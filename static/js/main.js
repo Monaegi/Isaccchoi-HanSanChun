@@ -71,44 +71,6 @@ var swiper = new Swiper('.home-slider', {
     prevButton: '.home-slider-prev'
 });
 
-//testimonials slider
-var swiper = new Swiper('.testimonials-slider', {
-    pagination: '.testimonials-pagination',
-    paginationClickable: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    nextButton: '.testimonials-slider-next',
-    prevButton: '.testimonials-slider-prev'
-});
-
-// product list
-var swiper = new Swiper('.product-list-slider', {
-    slidesPerView: 3,
-    pagination: '.product-list-pagination',
-    paginationClickable: true,
-    nextButton: '.product-list-slider-next',
-    prevButton: '.product-list-slider-prev',
-    spaceBetween: 30,
-    breakpoints: {
-        1024: {
-            slidesPerView: 2,
-            spaceBetween: 30
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 30
-        },
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 20
-        },
-        420: {
-            slidesPerView: 1,
-            spaceBetween: 10
-        }
-    }
-});
-
 //post slider
 var swiper = new Swiper('.post-slider', {
     pagination: '.post-pagination',
@@ -162,8 +124,15 @@ $(".navbar-nav li a[href^='#']").on('click', function(e) {
 // Google maps reference - https://developers.google.com/maps/
 // You need API key - https://developers.google.com/maps/documentation/javascript/get-api-key
 // place your api key in link to script  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
+var lat = $('#lat').text();
+var lng = $('#lng').text();
+$('#lat').hide();
+$('#lng').hide();
+
+console.log(lat, lng);
 var map;
-var mapAddress = new google.maps.LatLng(52.406374, 16.925168100000064);
+var mapAddress = new google.maps.LatLng(lat, lng);
 
 function initialize() {
 
