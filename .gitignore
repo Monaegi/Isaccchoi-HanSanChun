@@ -231,5 +231,4 @@ venv.bak/
 .idea/
 .static_root/
 .media/
-/static/img/
 /.config_secret.json
