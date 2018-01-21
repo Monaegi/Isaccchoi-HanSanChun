@@ -87,7 +87,7 @@
                             <!-- SINGLE BA ITEM -->
                             <div class="swiper-slide">
                                 <div class="post-entry wow fadeInUp">
-                                    <span class="post-entry-cover" style="background-image:url({{ ba.image.url }});">
+                                    <span class="post-entry-cover" style="background-image:url({{ ba.image.url }}); height: 300px;">
                                     </span>
                                     <h3 class="h3 text-center"
                                         style="color: white;font-family: Nanum Myeongjo;">{{ ba.period }}</h3>
@@ -178,7 +178,7 @@
                                         </span>
                                         <p>
                                             <a href="{{ workout.url }}" style="display: inline-block">
-                                                <img src="{{ workout.thumbnail.url }}" alt="">
+                                                <img src="{{ workout.thumbnail.url }}" alt="{{ workout.name }}-image">
                                             </a>
                                         </p>
                                         <p style="font-family: Nanum Myeongjo;"> Lorem ipsum dolor sit amet, consectetur
