@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import index
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
+    path('', views.index, name='index'),
+    path('question_create', views.question_create, name='question_create'),
 ]
 
 urlpatterns += static(
