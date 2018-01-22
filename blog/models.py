@@ -8,9 +8,12 @@ from PIL import Image
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
+
+from blog.utils import PasswordModelField
 
 __all__ = (
     'PersonalInfo',
@@ -18,6 +21,8 @@ __all__ = (
     'CategoryWorkOut',
     'WeightWorkOut',
     'BeforeAfter',
+    'Question',
+    'Comment',
 )
 
 CERTAIN_MUSCLE = (
@@ -126,10 +131,41 @@ class WeightWorkOut(models.Model):
         return super().save(*args, **kwargs)
 
 
+class Question(models.Model):
+    name = models.CharField(max_length=10, null=True, blank=True)
+    email = models.EmailField()
+    phone_regex = RegexValidator(regex=r'^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$',
+                                 message="전화번호는 '010-1234-5678'혹은 '01012345678'형태로 입력하여야 합니다.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=13)
+    password = PasswordModelField(max_length=100)
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.title}'
+
+
+class Comment(models.Model):
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'comment | {self.question.name} - {self.question.title}'
+
+
 @receiver(post_delete, sender=WeightWorkOut)
-def post_delete(sender, instance, **kwargs):
+def workout_delete(sender, instance, **kwargs):
     storage, path = instance.thumbnail.storage, instance.thumbnail.path
     if (path != '.') and (path != '/') and (path != 'photos/') and (path != 'photos/.'):
         storage.delete(path)
 
-# fixme PersonalInfo image signal도 추가
+
+@receiver(post_delete, sender=PersonalInfo)
+def info_delete(sender, instance, **kwargs):
+    storage, path = instance.image.storage, instance.image.path
+    if (path != '.') and (path != '/') and (path != 'photos/') and (path != 'photos/.'):
+        storage.delete(path)
