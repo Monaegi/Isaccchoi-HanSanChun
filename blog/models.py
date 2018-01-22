@@ -140,6 +140,7 @@ class Question(models.Model):
     password = PasswordModelField(max_length=100)
     title = models.CharField(max_length=50)
     content = models.TextField()
+    is_secret = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
