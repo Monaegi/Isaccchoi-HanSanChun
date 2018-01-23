@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style %}
+    <style>
+    .errorlist > li {
+        color: #D8000C;
+    }
+    </style>
+{% endblock %}
 {% block content %}
 
     <section class="home section image-slider" id="home" style="max-height: 300px;">
@@ -217,9 +224,11 @@
                     <h3 class="section-heading">Q & A</h3>
                 </div>
                 <div class="post-entry wow fadeInUp">
-
+                    {% for question in questions %}
+                        <p>{{ question.title|truncatechars:20 }}</p>
+                    {% endfor %}
                     <a href="#" data-toggle="modal" data-target="#question-form"
-                       class="post-entry-more" style="font-family: 'Nanum Myeongjo'">
+                       class="post-entry-more pull-right btn btn-default" style="font-family: 'Nanum Myeongjo'">
                         문의 하기
                     </a>
                 </div>
@@ -230,11 +239,15 @@
                     <!-- WORKOUT MODAL CONTENT -->
                     <div class="modal-content shadow">
                         <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+                        <!-- fixme boxing하여 적용 필요. pagination 적용 필요 -->
+                        {% for question in questions %}
+                        <p>{{ question.title|truncatewords:20 }}</p>
+                        {% endfor %}
 
                         <div class="modal-body">
                             <div class="post-entry post-entry-modal">
                                 <h3 class="section-heading" style="font-family: 'Nanum Myeongjo'">문의 하기</h3>
-                                <form action="{% url 'question_create' %}" method="post">
+                                <form action="{% url 'index' %}" method="post">
                                     {% csrf_token %}
                                     {{ question_form.as_p }}
                                     <button class="btn btn-default pull-right">문의 하기</button>
@@ -279,4 +292,13 @@
         </div>
     </section>
 
+{% endblock %}
+{% block script %}
+{% if question_form.errors %}
+    <script>
+    $(function() {
+      $('#question-form').modal({show: true});
+    });
+    </script>
+{% endif %}
 {% endblock %}

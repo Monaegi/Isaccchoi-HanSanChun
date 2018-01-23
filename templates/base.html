@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script%7CLato:300,400,700" rel="stylesheet">
     <link href="{% static 'css/bootstrap-dark.css' %}" rel="stylesheet">
     <link id="pagestyle" href="{% static 'css/theme-dark.css' %}" rel="stylesheet">
+    {% block style %}
+
+    {% endblock %}
 </head>
 
 <body data-offset="50" data-spy="scroll" data-target=".navbar" class="dark-theme">
@@ -95,5 +98,8 @@
 <script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_6m6Glf1-P7jvVdHZ00e3Ue_EoUNe39g"></script>
 <script src="{% static 'js/main.js' %}"></script>
+{% block script %}
+
+{% endblock %}
 </body>
 </html>
