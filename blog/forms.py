@@ -73,8 +73,11 @@ class CommentForm(forms.ModelForm):
         fields = (
             'content',
         )
+        labels = {
+            'content': '댓글'
+        }
         widgets = {
-            'content': forms.Textarea(
+            'content': forms.TextInput(
                 attrs={
                     'class': 'form-control',
                 }

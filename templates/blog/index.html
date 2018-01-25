@@ -10,6 +10,7 @@
         textarea {
             resize: none;
         }
+
         div .modal-content {
             float: none;
         }
@@ -235,16 +236,21 @@
                 <div class="post-entry wow fadeInUp">
                     <div class="row-demo">
                         <div class="col-md-12 demo-item">
-                            <div class="list-group">
+                            <ul class="list-group">
                                 {% for question in questions %}
                                     <a href="#" data-toggle="modal" data-target="#question-{{ question.id }}"
                                        style="font-family: 'Nanum Myeongjo'">
-                                        <button type="button" class="list-group-item" style="height: 50px;">
+                                        <li type="button" class="list-group-item" style="height: 50px;">
                                             {{ question.title|truncatechars:20 }}
-                                        </button>
+                                            {% if question.comment_set.count > 0 %}
+                                                <span class="badge">
+                                                    {{ question.comment_set.count }}
+                                                </span>
+                                            {% endif %}
+                                        </li>
                                     </a>
                                 {% endfor %}
-                            </div>
+                            </ul>
                             <div class="col-md-12 text-center">
                                 {% bootstrap_paginate questions range=10 show_prev_next="false" show_first_last="true" url_anchor="qa" %}
                             </div>
@@ -267,6 +273,7 @@
                                 <form action="{% url 'index' %}" method="post">
                                     {% csrf_token %}
                                     {{ question_form.as_p }}
+                                    <input type="hidden" name="type" value="question">
                                     <button class="btn btn-default pull-right">문의 하기</button>
                                 </form>
                             </div>
@@ -278,25 +285,66 @@
 
             <!-- Question MODAL -->
             {% for question in questions %}
-            <div class="modal fade" id="question-{{ question.id }}" role="dialog" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content shadow">
-                        <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
-                        <div class="modal-body">
-                            <div class="post-entry post-entry-modal">
-                                <h3 class="section-heading" style="font-family: 'Nanum Myeongjo'">
-                                    {{ question.title }}
-                                </h3>
-                                <p class="text-right"><small>{{ question.updated_at }}</small></p>
-                                <p class="text-right"><small>{{ question.name }}</small></p>
-                                <p class="text-center" style="font-family: 'Nanum Myeongjo'">
-                                    {{ question.content }}
-                                </p>
+                <div class="modal fade" id="question-{{ question.id }}" role="dialog" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content shadow">
+                            <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
+                            <div class="modal-body">
+                                <div class="post-entry post-entry-modal col-md-12">
+                                    <div style="display: inline-block" class="col-md-12">
+                                        <h3 class="section-heading" style="font-family: 'Nanum Myeongjo'">
+                                            {{ question.title }}
+                                        </h3>
+                                        <p class="text-right" style="color:lightgrey">
+                                            <small>{{ question.updated_at }}</small>
+                                        </p>
+                                        <p class="text-right" style="color:lightgrey">
+                                            <small>작성자: {{ question.name }}</small>
+                                        </p>
+                                        <br/>
+                                        <p class="text-center" style="font-family: 'Nanum Myeongjo'">
+                                            {{ question.content }}
+                                        </p>
+                                    </div>
+                                    <div class="panel panel-primary col-md-12"
+                                         style="border: 1px solid transparent; border-bottom: 0; display: inline-block">
+
+                                        <div class="panel-heading" style="min-height: 40px;">
+                                            <h3 class="panel-title" style="min-height: 17px; margin: 0 auto;">댓글</h3>
+                                        </div>
+                                        {% if question.comment_set.all.count > 0 %}
+                                            {% for comment in question.comment_set.all %}
+                                                <div class="panel-body">
+                                                    <p>{{ comment.content }}
+                                                        <span style="display: block; text-align: right; font-size: 12px; color: grey;">
+                                                            {{ comment.updated_at }}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <hr style="border-top: 1px solid #C6A668; margin: 0;">
+                                            {% endfor %}
+                                        {% else %}
+                                            <div class="panel-body" style="color:lightgrey">
+                                                아직 댓글이 작성되지 않았습니다.
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-12">
+                                        {% if request.user.is_authenticated %}
+                                            <form action="{% url 'index' %}" method="post" class="form-horizontal">
+                                                {% csrf_token %}
+                                                {{ comment_form.as_p }}
+                                                <input type="hidden" name="question_id" value="{{ question.id }}">
+                                                <input type="hidden" name="type" value="comment">
+                                                <button class="btn btn-default pull-right">댓글 작성</button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
             <!-- / Question MODAL -->
         </div>
