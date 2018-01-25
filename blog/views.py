@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
@@ -18,7 +19,11 @@ def index(request):
     home_images = Home.objects.all()
     before_after = BeforeAfter.objects.all().order_by('?')[:6]
     categories = CategoryWorkOut.objects.all()
-    question = Question.objects.all()
+    question_pagenator = Paginator(Question.objects.all(), 5)
+
+    page = request.GET.get('page')
+    question = question_pagenator.get_page(page)
+
     ctx = {
         'person': person,
         'home_images': home_images,

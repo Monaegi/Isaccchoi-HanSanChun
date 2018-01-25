@@ -217,7 +217,7 @@
         </div>
     </section>
 
-    <section class="post_list" style="background-image: none; background-color: black;" id="QA">
+    <section class="post_list" style="background-image: none; background-color: black;" id="qa">
         <div class="container overflow-hidden">
             <div class="row">
                 <div class="col-md-12">
@@ -227,6 +227,23 @@
                     {% for question in questions %}
                         <p>{{ question.title|truncatechars:20 }}</p>
                     {% endfor %}
+                    <div class="pagination">
+                            <span class="step-links">
+                                {% if questions.has_previous %}
+                                    <a href="?page=1#qa">&laquo; first</a>
+                                    <a href="?page={{ questions.previous_page_number }}#qa">previous</a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+                                </span>
+
+                                {% if questions.has_next %}
+                                    <a href="?page={{ questions.next_page_number }}#qa">next</a>
+                                    <a href="?page={{ questions.paginator.num_pages }}#qa">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>
                     <a href="#" data-toggle="modal" data-target="#question-form"
                        class="post-entry-more pull-right btn btn-default" style="font-family: 'Nanum Myeongjo'">
                         문의 하기
@@ -243,7 +260,6 @@
                         {% for question in questions %}
                         <p>{{ question.title|truncatewords:20 }}</p>
                         {% endfor %}
-
                         <div class="modal-body">
                             <div class="post-entry post-entry-modal">
                                 <h3 class="section-heading" style="font-family: 'Nanum Myeongjo'">문의 하기</h3>
