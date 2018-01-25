@@ -2,9 +2,9 @@
 {% load static %}
 {% block style %}
     <style>
-    .errorlist > li {
-        color: #D8000C;
-    }
+        .errorlist > li {
+            color: #D8000C;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -81,7 +81,8 @@
         </div>
     </section>
 
-    <section class="post-list" id="beforeafter" style="background-image: none;background-color: black; max-height: 1000px;">
+    <section class="post-list" id="beforeafter"
+             style="background-image: none;background-color: black; max-height: 1000px;">
         <div class="container overflow-hidden">
             <div class="row">
                 <div class="col-md-12">
@@ -227,23 +228,29 @@
                     {% for question in questions %}
                         <p>{{ question.title|truncatechars:20 }}</p>
                     {% endfor %}
-                    <div class="pagination">
-                            <span class="step-links">
+                    {% if questions.has_other_pages %}
+                        <div class="pagination">
+                            <ul class="pagination">
                                 {% if questions.has_previous %}
-                                    <a href="?page=1#qa">&laquo; first</a>
-                                    <a href="?page={{ questions.previous_page_number }}#qa">previous</a>
+                                    <li><a href="?page={{ questions.previous_page_number }}#qa">&laquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
                                 {% endif %}
-
-                                <span class="current">
-                                    Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
-                                </span>
-
+                                {% for i in questions.paginator.page_range %}
+                                    {% if questions.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}#qa">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
                                 {% if questions.has_next %}
-                                    <a href="?page={{ questions.next_page_number }}#qa">next</a>
-                                    <a href="?page={{ questions.paginator.num_pages }}#qa">last &raquo;</a>
+                                    <li><a href="?page={{ questions.next_page_number }}#qa">&raquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&raquo;</span></li>
                                 {% endif %}
-                            </span>
+                            </ul>
                         </div>
+                    {% endif %}
                     <a href="#" data-toggle="modal" data-target="#question-form"
                        class="post-entry-more pull-right btn btn-default" style="font-family: 'Nanum Myeongjo'">
                         문의 하기
@@ -258,7 +265,7 @@
                         <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
                         <!-- fixme boxing하여 적용 필요. pagination 적용 필요 -->
                         {% for question in questions %}
-                        <p>{{ question.title|truncatewords:20 }}</p>
+                            <p>{{ question.title|truncatewords:20 }}</p>
                         {% endfor %}
                         <div class="modal-body">
                             <div class="post-entry post-entry-modal">
@@ -310,11 +317,11 @@
 
 {% endblock %}
 {% block script %}
-{% if question_form.errors %}
-    <script>
-    $(function() {
-      $('#question-form').modal({show: true});
-    });
-    </script>
-{% endif %}
+    {% if question_form.errors %}
+        <script>
+            $(function () {
+                $('#question-form').modal({show: true});
+            });
+        </script>
+    {% endif %}
 {% endblock %}

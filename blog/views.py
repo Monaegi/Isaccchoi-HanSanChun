@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
@@ -19,10 +19,16 @@ def index(request):
     home_images = Home.objects.all()
     before_after = BeforeAfter.objects.all().order_by('?')[:6]
     categories = CategoryWorkOut.objects.all()
-    question_pagenator = Paginator(Question.objects.all(), 5)
+    question_paginator = Paginator(Question.objects.all(), 5)
 
     page = request.GET.get('page')
-    question = question_pagenator.get_page(page)
+
+    try:
+        question = question_paginator.page(page)
+    except PageNotAnInteger:
+        question = question_paginator.page(1)
+    except EmptyPage:
+        question = question_paginator.page(question_paginator.num_pages)
 
     ctx = {
         'person': person,
