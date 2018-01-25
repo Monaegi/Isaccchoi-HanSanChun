@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blog',
     # 3rd party
     'django_extensions',
+    'bootstrap_pagination',
 ]
 
 MIDDLEWARE = [

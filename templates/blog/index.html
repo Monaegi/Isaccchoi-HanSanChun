@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap_pagination %}
 {% block style %}
     <style>
         .errorlist > li {
             color: #D8000C;
+        }
+        textarea {
+            resize: none;
         }
     </style>
 {% endblock %}
@@ -225,48 +229,31 @@
                     <h3 class="section-heading">Q & A</h3>
                 </div>
                 <div class="post-entry wow fadeInUp">
-                    {% for question in questions %}
-                        <p>{{ question.title|truncatechars:20 }}</p>
-                    {% endfor %}
-                    {% if questions.has_other_pages %}
-                        <div class="pagination">
-                            <ul class="pagination">
-                                {% if questions.has_previous %}
-                                    <li><a href="?page={{ questions.previous_page_number }}#qa">&laquo;</a></li>
-                                {% else %}
-                                    <li class="disabled"><span>&laquo;</span></li>
-                                {% endif %}
-                                {% for i in questions.paginator.page_range %}
-                                    {% if questions.number == i %}
-                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                                    {% else %}
-                                        <li><a href="?page={{ i }}#qa">{{ i }}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if questions.has_next %}
-                                    <li><a href="?page={{ questions.next_page_number }}#qa">&raquo;</a></li>
-                                {% else %}
-                                    <li class="disabled"><span>&raquo;</span></li>
-                                {% endif %}
-                            </ul>
+                    <div class="row-demo">
+                        <div class="col-md-12 demo-item">
+                            <div class="list-group">
+                            {% for question in questions %}
+                                <button type="button" class="list-group-item" style="height: 50px;">
+                                    {{ question.title|truncatechars:20 }}
+                                </button>
+                            {% endfor %}
+                            </div>
+                            <div class="col-md-12 text-center">
+                                {% bootstrap_paginate questions range=10 show_prev_next="false" show_first_last="true" url_anchor="qa" %}
+                            </div>
                         </div>
-                    {% endif %}
-                    <a href="#" data-toggle="modal" data-target="#question-form"
-                       class="post-entry-more pull-right btn btn-default" style="font-family: 'Nanum Myeongjo'">
-                        문의 하기
-                    </a>
+                    </div>
+                        <a href="#" data-toggle="modal" data-target="#question-form"
+                           class="post-entry-more pull-right btn btn-default" style="font-family: 'Nanum Myeongjo'">
+                            문의 하기
+                        </a>
                 </div>
             </div>
-            <!-- WORKOUT MODAL -->
+            <!-- PostForm MODAL -->
             <div class="modal fade" id="question-form" role="dialog" tabindex="-1">
                 <div class="modal-dialog">
-                    <!-- WORKOUT MODAL CONTENT -->
                     <div class="modal-content shadow">
                         <a class="close" data-dismiss="modal"> <span class="ti-close"></span></a>
-                        <!-- fixme boxing하여 적용 필요. pagination 적용 필요 -->
-                        {% for question in questions %}
-                            <p>{{ question.title|truncatewords:20 }}</p>
-                        {% endfor %}
                         <div class="modal-body">
                             <div class="post-entry post-entry-modal">
                                 <h3 class="section-heading" style="font-family: 'Nanum Myeongjo'">문의 하기</h3>
@@ -278,10 +265,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- / WORKOUT MODAL CONTENT -->
                 </div>
             </div>
-            <!-- / WORKOUT MODAL -->
+            <!-- / PostForm MODAL -->
+
         </div>
     </section>
 
