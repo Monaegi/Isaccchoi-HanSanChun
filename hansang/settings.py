@@ -28,9 +28,9 @@ config_secret = json.loads(open(CONFIC_SECRET_FILE).read())
 SECRET_KEY = '4+2w42&em5a96&-1l@!hkqo-%t1k=#4si*n+f@v+=rrf5wo5@m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.pythonanywhere.com', 'test.isaccchoi.com']
 
 # Application definition
 
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
