@@ -19,18 +19,14 @@ class QuestionForm(forms.ModelForm):
             'name',
             'email',
             'phone_number',
-            'password',
             'title',
             'content',
-            'is_secret',
         )
         labels = {
             'name': '성함',
             'email': '이메일',
-            'password': '글 암호',
             'title': '제목',
             'content': '내용',
-            'is_secret': '비밀글',
         }
         widgets = {
             'name': forms.TextInput(
@@ -43,12 +39,6 @@ class QuestionForm(forms.ModelForm):
                     'class': 'form-control',
                 }
             ),
-
-            'password': forms.PasswordInput(
-                attrs={
-                    'class': 'form-control',
-                }
-            ),
             'title': forms.TextInput(
                 attrs={
                     'class': 'form-control',
@@ -57,13 +47,9 @@ class QuestionForm(forms.ModelForm):
             'content': forms.Textarea(
                 attrs={
                     'class': 'form-control',
+                    'id': 'question-content',
                 }
             ),
-            'is_secret': forms.CheckboxInput(
-                attrs={
-                    'class': 'form-control text-left',
-                }
-            )
         }
 
 

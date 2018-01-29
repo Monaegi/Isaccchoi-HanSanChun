@@ -137,10 +137,8 @@ class Question(models.Model):
     phone_regex = RegexValidator(regex=r'^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$',
                                  message="전화번호는 '010-1234-5678'혹은 '01012345678'형태로 입력하여야 합니다.")
     phone_number = models.CharField(validators=[phone_regex], max_length=13)
-    password = PasswordModelField(max_length=100)
     title = models.CharField(max_length=50)
     content = models.TextField()
-    is_secret = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
