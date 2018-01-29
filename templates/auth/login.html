@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row"><h3>로그인</h3></div>
+    <form action="." method="post" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Login">
+    </form>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('#id_username').addClass('form-control');
+        $('#id_password').addClass('form-control');
+    })
+</script>
+{% endblock %}

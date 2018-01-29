@@ -140,3 +140,6 @@ MEDIA_URL = '/media/'
 # Google Maps
 GOOGLE_MAPS_API_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
 GOOGLE_MAPS_API_KEY = config_secret['geocoding']['secret_key']
+
+# AUTH
+LOGIN_REDIRECT_URL = '/'
