@@ -28,7 +28,7 @@ config_secret = json.loads(open(CONFIC_SECRET_FILE).read())
 SECRET_KEY = '4+2w42&em5a96&-1l@!hkqo-%t1k=#4si*n+f@v+=rrf5wo5@m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.pythonanywhere.com', 'test.isaccchoi.com']
 

@@ -36,7 +36,7 @@ def index(request):
     person = PersonalInfo.objects.first()
     home_images = Home.objects.all()
     before_after = BeforeAfter.objects.all().order_by('?')[:6]
-    categories = CategoryWorkOut.objects.all()
+    categories = CategoryWorkOut.objects.all().order_by('-id')
     question_paginator = Paginator(Question.objects.all(), 10)
 
     page = request.GET.get('page')
