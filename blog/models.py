@@ -12,8 +12,8 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
-
-from blog.utils import PasswordModelField
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFill
 
 __all__ = (
     'PersonalInfo',
@@ -95,6 +95,10 @@ class BeforeAfter(models.Model):
 class CategoryWorkOut(models.Model):
     name = models.CharField(choices=CERTAIN_MUSCLE, max_length=8)
     image = models.ImageField(upload_to='category')
+    image_thumbnail = ImageSpecField(source='image',
+                               processors=[ResizeToFill(440, 200)],
+                               format='JPEG',
+                               options={'quality': 60})
 
     def __str__(self):
         return self.get_name_display()
@@ -143,7 +147,7 @@ class Question(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('-created_at', )
+        ordering = ('-created_at',)
 
     def __str__(self):
         return f'{self.name} - {self.title}'
